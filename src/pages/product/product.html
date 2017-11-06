@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Ürünler</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<ion-searchbar [(ngModel)]="filterText" (ionInput)="getItems()"></ion-searchbar>
+
+
+    <ion-item>
+      <ion-label>Kategori seçiniz</ion-label>
+      <ion-select [(ngModel)]="selectedCategory" (ionChange)="getItems()">
+        <ion-option value="" selected>Seç</ion-option>
+        <ion-option *ngFor="let category of categories" value="{{category.categoryName}}">{{category.categoryName}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+
+  <ion-list>
+      <button ion-item *ngFor="let product of products" (click)="itemTapped($event,product)">
+        {{product.productName}}
+        <div item-right>
+          {{product.unitPrice | currency:'USD':true}}
+        </div>
+      </button>
+  </ion-list>
+</ion-content>

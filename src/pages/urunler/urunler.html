@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Ürünler</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div *ngFor="let product of products">
+      <ion-item>
+
+        <h2 >{{product.Name}}</h2>
+
+      </ion-item>
+    </div>
+
+
+  </ion-list>
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sepet</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="card-background-page">
+
+    <ion-item *ngFor="let item of cartItems">
+      <ion-avatar item-start>
+        <img src="../../assets/imgs/chai.jpg">
+      </ion-avatar>
+      <h2>{{item.product.productName}}</h2>
+      <h3>{{item.quantity*item.product.unitPrice | currency:USD:'true'}}</h3>
+      <p>{{item.product.quantityPerUnit}}</p>
+    </ion-item>
+
+<p *ngIf="cartItems.length == 0"> Sepette Ürün Yok</p>
+</ion-content>
